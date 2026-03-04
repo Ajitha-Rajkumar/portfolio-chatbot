@@ -1,0 +1,22 @@
+PROJECTS UNDER JIO PLATFORMS LIMITED
+
+Delivery management of Infrastructure Fiber automation Features
+∗ Utilizing Azure DevOps for project life-cycle management, effectively tracking progress and ensuring the timely
+delivery of project milestones
+∗ Collaborated closely with stakeholders to define project requirements and priorities, ensuring alignment with
+business objectives
+∗ Scheduled effective triage call within cross functional team to expedite defect resolutions and eliminate bottlenecks,
+ensuring smooth project progression
+
+Documentation of Jio Infrastructure automation processes
+∗ Created detailed process diagrams using BPMN (Business Process Model and Notation) for documenting
+end-to-end workflow
+∗ Working closely with subject matter experts to ensure accuracy and completeness of process documentation
+∗ Mapping Jio processes to eTOM (Enhanced Telecom Operations Map) standards defined by TM Forum, ensuring
+alignment with industry best practices.
+
+Operationalizing fiber laying within and across the cities
+∗ Providing timely resolution to production tickets, addressing issues and minimizing disruptions to ongoing operations.
+∗ Reduced 70 percent support tickets by streamlining support process and improving user experience
+∗ Monitoring the progress of core fiber build links across the country, proactively identifying and addressing any issues to
+maintain network integrity and reliability
