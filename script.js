@@ -82,11 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== TYPEWRITER EFFECT ==========
     const typewriterEl = document.getElementById('typewriter');
     const titles = [
-        'Delivery Manager',
+        'Certified Scrum Master',
+        'Agile Delivery Project Manager',
+        'AI & Automation Enthusiast',
         'Siteforge Feature Lead',
-        'Process Documentation Expert',
-        'Project Management Professional',
-        'eTOM & TM Forum Specialist'
+        'Power BI Data Analyst',
+        'Driving Fiber Network Transformation'
     ];
     let titleIndex = 0;
     let charIndex = 0;
@@ -161,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== SCROLL REVEAL ==========
     function addRevealClasses() {
         const elements = document.querySelectorAll(
-            '.skill-card, .project-card, .timeline-item, .about-grid, .contact-grid, .github-card, .github-profile-banner'
+            '.skill-card, .cert-card, .project-card, .timeline-item, .about-grid, .contact-grid, .github-card, .github-profile-banner'
         );
         elements.forEach(el => el.classList.add('reveal'));
     }

@@ -10,15 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================================
     const PROFILE = {
         name: 'Ajitha Rajkumar',
-        role: 'Project & Delivery Management Professional',
+        role: 'Project Manager | AI & Automation Enthusiast | Driving Fiber Network Digital Transformation',
         company: 'Jio Platforms Limited',
         location: 'India',
         linkedin: 'https://www.linkedin.com/in/ajitha-rajkumar/',
         github: 'https://github.com/Ajitha-Rajkumar',
         email: 'ajitha.rajkumar@email.com',
-        yearsAtJio: '3+',
-        summary: 'A dedicated professional at Jio Platforms Limited with 3+ years of experience spanning SIT delivery, production support optimization, process documentation, and full feature delivery management.',
+        yearsAtJio: '3.5+',
+        summary: 'Certified Scrum Master / Agile Delivery Project Manager with 3.5+ years of experience at Jio Platforms delivering telecom digital transformation and workflow automation projects across SDLC in large-scale enterprise environments. CSM-certified (Scrum Alliance) with proven ability to drive Agile delivery through Sprint Planning, Sprint Goals, Sprint Backlog execution, Reviews, and Retrospectives. Strong track record of delivering complex initiatives on time and within budget (<3% variance) across PAN-India operations.',
     };
+
+    const CERTIFICATIONS = [
+        { name: 'Certified Scrum Master (CSM)', issuer: 'Scrum Alliance', desc: 'Demonstrates expertise in Agile delivery through Sprint Planning, Sprint Goals, Sprint Backlog execution, Reviews, and Retrospectives.' },
+        { name: 'Microsoft Power BI Data Analyst', issuer: 'Microsoft', desc: 'Validates proficiency in data preparation, modeling, visualization, and analysis using Microsoft Power BI.' },
+        { name: 'IBM Applied Software Engineering Fundamentals', issuer: 'IBM', desc: 'Covers applied software engineering principles including SDLC, version control, testing, and deployment.' },
+    ];
 
     const SKILLS = [
         { name: 'Azure DevOps', desc: 'Project lifecycle management, sprint planning, feature tracking & delivery.' },
@@ -318,6 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'home': 'hero', 'top': 'hero', 'hero': 'hero', 'start': 'hero', 'beginning': 'hero',
         'about': 'about', 'about me': 'about', 'about section': 'about', 'bio': 'about', 'profile': 'about',
         'skills': 'skills', 'skill': 'skills', 'expertise': 'skills', 'technologies': 'skills', 'tech': 'skills',
+        'certifications': 'certifications', 'certification': 'certifications', 'certificates': 'certifications', 'certificate': 'certifications', 'certs': 'certifications', 'csm': 'certifications', 'credentials': 'certifications',
         'projects': 'projects', 'project': 'projects', 'work': 'projects', 'portfolio': 'projects',
         'experience': 'experience', 'career': 'experience', 'timeline': 'experience', 'journey': 'experience',
         'github': 'github', 'repos': 'github', 'repositories': 'github', 'github projects': 'github',
@@ -600,9 +607,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- About / Who ---
         {
             patterns: ['who is ajitha', 'who are you', 'tell me about ajitha', 'about ajitha', 'about you', 'about her', 'about yourself', 'introduce', 'introduction', 'about me', 'who is she', 'bio', 'background'],
-            response: () => `<strong>${PROFILE.name}</strong> is a ${PROFILE.role} at <strong>${PROFILE.company}</strong> with ${PROFILE.yearsAtJio} years of experience.<br><br>${PROFILE.summary}<br><br>She has worked on key projects including Siteforge delivery, One Fiber ticket reduction (70% reduction!), Jio Process Documentation using Avolution Abacus, and P2B OSP SIT delivery.`,
+            response: () => `<strong>${PROFILE.name}</strong><br><em>${PROFILE.role}</em><br><br>Working at <strong>${PROFILE.company}</strong> with ${PROFILE.yearsAtJio} years of experience.<br><br>${PROFILE.summary}<br><br>🎓 <strong>Certifications:</strong> CSM (Scrum Alliance), Microsoft Power BI Data Analyst, IBM Applied Software Engineering Fundamentals<br><br>She has worked on key projects including Siteforge delivery, One Fiber ticket reduction (70% reduction!), Jio Process Documentation, and P2B OSP SIT delivery.`,
             action: () => actions.navigateTo('about'),
-            quickReplies: ['Skills', 'Projects', 'Experience', 'Contact'],
+            quickReplies: ['Certifications', 'Skills', 'Projects', 'Experience'],
         },
 
         // --- Skills ---
@@ -614,6 +621,17 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             action: () => actions.navigateTo('skills'),
             quickReplies: ['Azure DevOps', 'Avolution Abacus', 'eTOM', 'Projects'],
+        },
+
+        // --- Certifications ---
+        {
+            patterns: ['certifications', 'certificates', 'certified', 'certification', 'credentials', 'csm', 'scrum master', 'power bi certification', 'ibm certification'],
+            response: () => {
+                let list = CERTIFICATIONS.map(c => `<li><strong>${c.name}</strong> — <em>${c.issuer}</em><br>${c.desc}</li>`).join('');
+                return `Ajitha holds <strong>3 professional certifications</strong>:<ul>${list}</ul>These certifications validate her expertise in Agile delivery, data analytics, and software engineering.`;
+            },
+            action: () => actions.navigateTo('certifications'),
+            quickReplies: ['Skills', 'Projects', 'Experience', 'Go to Certifications'],
         },
 
         // --- Azure DevOps ---
@@ -715,8 +733,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Achievements ---
         {
             patterns: ['achievements', 'accomplishments', 'impact', 'results', 'key achievement', 'proud of'],
-            response: () => `Here are Ajitha's standout achievements at Jio:<ul><li>🎯 <strong>70% reduction in support tickets</strong> — One Fiber project (2023–2024)</li><li>📋 <strong>End-to-end process documentation</strong> using Avolution Abacus mapped to eTOM standards</li><li>🤝 <strong>Cross-Jio coordination</strong> — worked with solution architects across the organization</li><li>🚀 <strong>Full feature delivery ownership</strong> — currently managing Siteforge delivery</li><li>📊 <strong>3+ years of consistent delivery</strong> across 4 major projects at Jio</li></ul>`,
-            quickReplies: ['Projects', 'Experience', 'Skills'],
+            response: () => `Here are Ajitha's standout achievements:<ul><li>🎓 <strong>3 Professional Certifications</strong> — CSM (Scrum Alliance), Power BI (Microsoft), IBM Software Engineering</li><li>🎯 <strong>70% reduction in support tickets</strong> — One Fiber project (2023–2024)</li><li>💰 <strong>&lt;3% budget variance</strong> — Consistent on-time, within-budget delivery across PAN-India operations</li><li>📋 <strong>End-to-end process documentation</strong> using Avolution Abacus mapped to eTOM standards</li><li>🤝 <strong>Cross-Jio coordination</strong> — worked with solution architects across the organization</li><li>🚀 <strong>Full feature delivery ownership</strong> — currently managing Siteforge delivery</li><li>📊 <strong>3.5+ years of consistent delivery</strong> across 4 major projects at Jio</li></ul>`,
+            quickReplies: ['Certifications', 'Projects', 'Experience'],
         },
 
         // --- Contact ---
@@ -815,9 +833,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- Agile ---
         {
-            patterns: ['agile', 'scrum', 'sprint', 'methodology'],
-            response: () => `Ajitha follows <strong>Agile methodology</strong> in her delivery management work. She uses <strong>Azure DevOps</strong> for sprint planning, feature tracking, and lifecycle management across all her projects at Jio Platforms Limited.`,
-            quickReplies: ['Azure DevOps', 'Projects', 'Skills'],
+            patterns: ['agile', 'sprint', 'methodology'],
+            response: () => `Ajitha is a <strong>Certified Scrum Master (CSM)</strong> from Scrum Alliance! She follows <strong>Agile methodology</strong> in her delivery management work with proven ability to drive Agile delivery through Sprint Planning, Sprint Goals, Sprint Backlog execution, Reviews, and Retrospectives. She uses <strong>Azure DevOps</strong> for sprint planning, feature tracking, and lifecycle management across all her projects at Jio.`,
+            quickReplies: ['Certifications', 'Azure DevOps', 'Projects'],
         },
 
         // --- Thanks ---
