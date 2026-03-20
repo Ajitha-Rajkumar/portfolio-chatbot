@@ -16,8 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         linkedin: 'https://www.linkedin.com/in/ajitha-rajkumar/',
         github: 'https://github.com/Ajitha-Rajkumar',
         email: 'ajitha.rajkumar@email.com',
-        yearsAtJio: '3.5+',
-        summary: 'Certified Scrum Master / Agile Delivery Project Manager with 3.5+ years of experience at Jio Platforms delivering telecom digital transformation and workflow automation projects across SDLC in large-scale enterprise environments. CSM-certified (Scrum Alliance) with proven ability to drive Agile delivery through Sprint Planning, Sprint Goals, Sprint Backlog execution, Reviews, and Retrospectives. Strong track record of delivering complex initiatives on time and within budget (<3% variance) across PAN-India operations.',
+        yearsAtJio: '3.4',
+        specializations: [
+            'Fiber network operations',
+            'Process automation',
+            'SLA-based delivery management',
+            'Governance and reporting',
+        ],
+        summary: 'A Project Manager / PMO Analyst with 3.4 years of experience at Jio Platforms. Specializes in fiber network operations, process automation, SLA-based delivery management, and governance & reporting. Has worked on digital transformation initiatives, improving operational efficiency and reducing manual effort. CSM-certified (Scrum Alliance) with proven ability to drive Agile delivery through Sprint Planning, Sprint Goals, Sprint Backlog execution, Reviews, and Retrospectives. Strong track record of delivering complex initiatives on time and within budget (<3% variance) across PAN-India operations. Also exploring AI and building solutions like chatbot-based portfolio assistants and AI-driven business process analyzers.',
     };
 
     const CERTIFICATIONS = [
@@ -27,11 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const SKILLS = [
-        { name: 'Azure DevOps', desc: 'Project lifecycle management, sprint planning, feature tracking & delivery.' },
+        { name: 'Project Management', desc: 'End-to-end project delivery, milestone tracking, cross-functional team coordination, Agile & Scrum methodology.' },
+        { name: 'SLA & Governance', desc: 'SLA-based delivery management, RAID-driven execution, governance frameworks, proactive escalation tracking.' },
+        { name: 'Process Mapping (BPMN, eTOM)', desc: 'BPMN-based process documentation, eTOM framework alignment, workflow standardization, business process modeling.' },
+        { name: 'Azure DevOps', desc: 'Project lifecycle management, sprint planning, feature tracking, defect management & delivery.' },
+        { name: 'Excel & Reporting', desc: 'Data analysis, dashboard creation, operational reporting, structured data input for process optimization.' },
+        { name: 'AI Tools (Cursor, Prompt Engineering)', desc: 'AI-driven process analysis, prompt-based evaluation systems, chatbot development, AI application in business optimization.' },
         { name: 'Avolution Abacus', desc: 'Enterprise architecture, process documentation, business process modeling.' },
         { name: 'eTOM / TM Forum', desc: 'Telecom operations mapping, business process alignment to industry standards.' },
-        { name: 'Project & Delivery Management', desc: 'Agile methodology, milestone tracking, cross-functional team coordination.' },
-        { name: 'Infrastructure Automation', desc: 'Fiber automation features, SIT delivery, Siteforge feature management.' },
+        { name: 'Infrastructure Automation', desc: 'Fiber automation features, workflow automation, reducing manual effort in operations.' },
         { name: 'Production Support', desc: 'Ticket resolution, issue triaging, process streamlining & UX improvement.' },
     ];
 
@@ -64,13 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
             impact: ['Improved process clarity and consistency', 'Faster onboarding for new resources', 'Supported automation initiatives'],
         },
         {
-            name: 'AI-Powered Portfolio Chatbot',
+            name: 'AI-Powered Business Process Chatbot',
             role: 'Creator',
             tag: 'Creator',
-            tech: ['Cursor', 'AI APIs', 'Web Technologies'],
-            problem: ['Traditional portfolios are static and non-interactive', 'Recruiters spend limited time reviewing profiles'],
-            solution: ['Built an AI chatbot integrated into portfolio', 'Enabled query-based interaction for recruiters', 'Structured responses for experience and projects', 'Designed conversational interface for engagement'],
-            impact: ['Created interactive portfolio experience', 'Improved accessibility of information', 'Demonstrates AI + product-thinking capability'],
+            tech: ['Cursor', 'AI APIs', 'Web Technologies', 'Prompt Engineering'],
+            problem: ['Traditional portfolios are static and non-interactive', 'Recruiters spend limited time reviewing profiles', 'Manual effort needed to explain and analyze business processes'],
+            solution: ['Built an AI chatbot integrated into portfolio', 'Enabled query-based interaction for recruiters', 'Structured responses for experience and projects', 'Designed conversational interface for engagement', 'Helps users understand workflows and identify inefficiencies', 'Enables quick, query-based insights for decision-making'],
+            impact: ['Created interactive portfolio experience', 'Improved accessibility of information', 'Demonstrates AI + product-thinking capability', 'Demonstrates application of AI in process optimization and automation'],
         },
         {
             name: 'AI Business Process Analyzer',
@@ -88,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { period: 'Ongoing', role: 'Creator', project: 'AI Business Process Analyzer', desc: 'Designing AI-driven process analysis using Excel and prompt engineering.' },
         { period: 'Completed', role: 'PMO Analyst', project: 'SLA-Based Delivery & Governance Framework', desc: 'Implemented SLA tracking and RAID-based risk management framework.' },
         { period: 'Completed', role: 'PMO Analyst', project: 'Business Process Documentation & Standardization', desc: 'Created BPMN process flows and standardized workflows using eTOM framework.' },
-        { period: 'Completed', role: 'Creator', project: 'AI-Powered Portfolio Chatbot', desc: 'Built an AI chatbot for interactive portfolio experience.' },
+        { period: 'Completed', role: 'Creator', project: 'AI-Powered Business Process Chatbot', desc: 'Built an AI chatbot to explain and analyze business processes, enabling query-based insights for decision-making and demonstrating AI in process optimization.' },
     ];
 
     // =============================================
@@ -605,7 +615,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- About / Who ---
         {
             patterns: ['who is ajitha', 'who are you', 'tell me about ajitha', 'about ajitha', 'about you', 'about her', 'about yourself', 'introduce', 'introduction', 'about me', 'who is she', 'bio', 'background'],
-            response: () => `<strong>${PROFILE.name}</strong><br><em>${PROFILE.role}</em><br><br>Working at <strong>${PROFILE.company}</strong> with ${PROFILE.yearsAtJio} years of experience.<br><br>${PROFILE.summary}<br><br>🎓 <strong>Certifications:</strong> CSM (Scrum Alliance), Microsoft Power BI Data Analyst, IBM Applied Software Engineering Fundamentals<br><br>Key projects: Fiber Network Automation (~70% ticket reduction), SLA Governance Framework, BPMN Process Documentation, AI-Powered Portfolio Chatbot, and AI Business Process Analyzer (ongoing).`,
+            response: () => {
+                const specs = PROFILE.specializations.map(s => `<li>${s}</li>`).join('');
+                return `<strong>${PROFILE.name}</strong><br><em>${PROFILE.role}</em><br><br>Working at <strong>${PROFILE.company}</strong> with <strong>${PROFILE.yearsAtJio} years</strong> of experience.<br><br>${PROFILE.summary}<br><br>🔹 <strong>Specializations:</strong><ul>${specs}</ul>🎓 <strong>Certifications:</strong> CSM (Scrum Alliance), Microsoft Power BI Data Analyst, IBM Applied Software Engineering Fundamentals<br><br>Key projects: Fiber Network Automation (~70% ticket reduction), SLA Governance Framework, BPMN Process Documentation, AI-Powered Business Process Chatbot, and AI Business Process Analyzer (ongoing).`;
+            },
             action: () => actions.navigateTo('about'),
             quickReplies: ['Certifications', 'Skills', 'Projects', 'Experience'],
         },
@@ -618,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return `Here are Ajitha's key skills & expertise:<ul>${list}</ul>`;
             },
             action: () => actions.navigateTo('skills'),
-            quickReplies: ['Azure DevOps', 'Avolution Abacus', 'eTOM', 'Projects'],
+            quickReplies: ['Project Management', 'Azure DevOps', 'AI Tools', 'Process Mapping'],
         },
 
         // --- Certifications ---
@@ -635,8 +648,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Azure DevOps ---
         {
             patterns: ['azure devops', 'azure', 'devops', 'ado'],
-            response: () => `<strong>Azure DevOps</strong> is one of Ajitha's core tools. She uses it for:<ul><li>Project lifecycle management & sprint planning</li><li>Feature tracking & delivery across all projects</li><li>Defect management & triage coordination</li></ul>She has used Azure DevOps across all her projects at Jio — from P2B OSP SIT delivery to the current Siteforge feature delivery.`,
-            quickReplies: ['Siteforge', 'P2B OSP', 'All Skills'],
+            response: () => `<strong>Azure DevOps</strong> is one of Ajitha's core tools. She uses it for:<ul><li>Project lifecycle management & sprint planning</li><li>Feature tracking & delivery across all projects</li><li>Defect management & triage coordination</li></ul>She has used Azure DevOps across all her projects at Jio, from Fiber Network Automation to SLA-based delivery and governance frameworks.`,
+            quickReplies: ['Fiber Automation', 'SLA Framework', 'All Skills'],
         },
 
         // --- Avolution Abacus ---
@@ -706,15 +719,15 @@ document.addEventListener('DOMContentLoaded', () => {
             quickReplies: ['eTOM', 'Fiber Automation', 'Other Projects'],
         },
 
-        // --- AI-Powered Portfolio Chatbot ---
+        // --- AI-Powered Business Process Chatbot ---
         {
-            patterns: ['portfolio chatbot', 'ai chatbot', 'chatbot project', 'interactive portfolio', 'this chatbot', 'this bot'],
+            patterns: ['portfolio chatbot', 'ai chatbot', 'chatbot project', 'interactive portfolio', 'this chatbot', 'this bot', 'business process chatbot', 'ai powered chatbot'],
             response: () => {
                 const p = PROJECTS[3];
                 const problems = p.problem.map(x => `<li>${x}</li>`).join('');
                 const solutions = p.solution.map(x => `<li>${x}</li>`).join('');
                 const impacts = p.impact.map(x => `<li>${x}</li>`).join('');
-                return `<strong>${p.name}</strong><br>🏷️ ${p.role} | 🛠️ ${p.tech.join(', ')}<br><br>❌ <strong>Problem:</strong><ul>${problems}</ul>✅ <strong>Solution:</strong><ul>${solutions}</ul>🎯 <strong>Impact:</strong><ul>${impacts}</ul>Yes — you're talking to it right now! 🤖`;
+                return `<strong>${p.name}</strong><br>🏷️ ${p.role} | 🛠️ ${p.tech.join(', ')}<br><br>This AI chatbot explains and analyzes business processes, helps users understand workflows and identify inefficiencies, and enables quick, query-based insights for decision-making.<br><br>❌ <strong>Problem:</strong><ul>${problems}</ul>✅ <strong>Solution:</strong><ul>${solutions}</ul>🎯 <strong>Impact:</strong><ul>${impacts}</ul>Yes — you're talking to it right now! 🤖`;
             },
             action: () => actions.navigateTo('projects'),
             quickReplies: ['AI Analyzer', 'Other Projects', 'Skills'],
@@ -750,14 +763,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Current Role ---
         {
             patterns: ['current role', 'current position', 'what does she do', 'role now', 'designation', 'title', 'current project', 'current work', 'what is she doing now', 'present project', 'latest project', 'working on now'],
-            response: () => `Ajitha is currently working as a <strong>Project Manager</strong> at <strong>Jio Platforms Limited</strong>, leading <strong>Fiber Network Automation &amp; Process Optimization</strong> — achieving a ~70% ticket volume reduction. She is also building an <strong>AI Business Process Analyzer</strong> as an ongoing side project.`,
-            quickReplies: ['Fiber Automation', 'AI Analyzer', 'Skills'],
+            response: () => `Ajitha is a <strong>Project Manager / PMO Analyst</strong> at <strong>Jio Platforms Limited</strong> with ${PROFILE.yearsAtJio} years of experience. She specializes in fiber network operations, process automation, SLA-based delivery management, and governance & reporting. She is currently leading <strong>Fiber Network Automation &amp; Process Optimization</strong> — achieving a ~70% ticket volume reduction, and is also exploring AI by building solutions like the <strong>AI Business Process Chatbot</strong> and <strong>AI Business Process Analyzer</strong>.`,
+            quickReplies: ['Fiber Automation', 'AI Chatbot', 'AI Analyzer', 'Skills'],
         },
 
         // --- Achievements ---
         {
             patterns: ['achievements', 'accomplishments', 'impact', 'results', 'key achievement', 'proud of'],
-            response: () => `Here are Ajitha's standout achievements:<ul><li>🎓 <strong>3 Professional Certifications</strong> — CSM (Scrum Alliance), Power BI (Microsoft), IBM Software Engineering</li><li>🎯 <strong>~70% ticket volume reduction</strong> — Fiber Network Automation project</li><li>💰 <strong>&lt;3% budget variance</strong> — Consistent on-time, within-budget delivery across PAN-India operations</li><li>📋 <strong>End-to-end BPMN process documentation</strong> standardized with eTOM framework</li><li>📊 <strong>SLA tracking &amp; governance framework</strong> — improved compliance across projects</li><li>🤖 <strong>AI-Powered Portfolio Chatbot</strong> — demonstrates AI + product-thinking capability</li><li>🧠 <strong>AI Business Process Analyzer</strong> — ongoing AI innovation project</li><li>📊 <strong>3.5+ years of consistent delivery</strong> across 5 key projects at Jio</li></ul>`,
+            response: () => `Here are Ajitha's standout achievements:<ul><li>🎓 <strong>3 Professional Certifications</strong> — CSM (Scrum Alliance), Power BI (Microsoft), IBM Software Engineering</li><li>🎯 <strong>~70% ticket volume reduction</strong> — Fiber Network Automation project</li><li>💰 <strong>&lt;3% budget variance</strong> — Consistent on-time, within-budget delivery across PAN-India operations</li><li>📋 <strong>End-to-end BPMN process documentation</strong> standardized with eTOM framework</li><li>📊 <strong>SLA tracking &amp; governance framework</strong> — improved compliance across projects</li><li>🤖 <strong>AI-Powered Business Process Chatbot</strong> — demonstrates AI in process optimization + product-thinking capability</li><li>🧠 <strong>AI Business Process Analyzer</strong> — ongoing AI innovation project</li><li>📊 <strong>${PROFILE.yearsAtJio} years of consistent delivery</strong> across 5 key projects at Jio</li></ul>`,
             quickReplies: ['Certifications', 'Projects', 'Experience'],
         },
 
@@ -823,7 +836,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Company / Jio ---
         {
             patterns: ['jio', 'company', 'organization', 'where does she work', 'employer', 'jio platforms'],
-            response: () => `Ajitha works at <strong>Jio Platforms Limited</strong>, one of India's largest technology companies. She has been with Jio for <strong>3+ years</strong> (since 2022), working across multiple critical projects in infrastructure automation and telecom operations.`,
+            response: () => `Ajitha works at <strong>Jio Platforms Limited</strong>, one of India's largest technology companies. She has been with Jio for <strong>${PROFILE.yearsAtJio} years</strong> (since 2022), working across multiple critical projects in fiber network operations, process automation, SLA-based delivery management, and governance & reporting.`,
             quickReplies: ['Experience', 'Projects', 'Current Role'],
         },
 
@@ -851,14 +864,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Fiber / Telecom ---
         {
             patterns: ['fiber', 'fibre', 'telecom', 'telecommunications', 'network', 'infrastructure'],
-            response: () => `Ajitha has extensive experience in <strong>telecom &amp; fiber network infrastructure</strong> at Jio:<ul><li><strong>Fiber Network Automation:</strong> Automated workflows and reduced ticket volume by ~70%</li><li><strong>BPMN Process Documentation:</strong> Standardized processes using eTOM framework</li><li><strong>SLA Governance Framework:</strong> Implemented centralized SLA tracking</li><li><strong>AI Business Process Analyzer:</strong> Building AI-driven process optimization (ongoing)</li></ul>`,
-            quickReplies: ['Fiber Automation', 'SLA Framework', 'eTOM'],
+            response: () => `Ajitha has extensive experience in <strong>telecom &amp; fiber network infrastructure</strong> at Jio. She specializes in fiber network operations and has worked on digital transformation initiatives, improving operational efficiency and reducing manual effort:<ul><li><strong>Fiber Network Automation:</strong> Automated fiber network workflows, reduced ticket volume by ~70%, improved SLA adherence using Azure DevOps and BPMN</li><li><strong>SLA Governance Framework:</strong> Implemented SLA tracking framework, managed RAID logs, improved visibility across teams, reduced delays through proactive escalation</li><li><strong>Process Documentation:</strong> Created BPMN-based workflows, standardized processes using eTOM, improved onboarding and consistency</li><li><strong>AI Business Process Analyzer:</strong> Designed AI system to analyze Excel-based processes, generates optimization suggestions (ongoing)</li></ul>`,
+            quickReplies: ['Fiber Automation', 'SLA Framework', 'Process Documentation', 'eTOM'],
         },
 
         // --- Agile ---
         {
-            patterns: ['agile', 'sprint', 'methodology'],
-            response: () => `Ajitha is a <strong>Certified Scrum Master (CSM)</strong> from Scrum Alliance! She follows <strong>Agile methodology</strong> in her delivery management work with proven ability to drive Agile delivery through Sprint Planning, Sprint Goals, Sprint Backlog execution, Reviews, and Retrospectives. She uses <strong>Azure DevOps</strong> for sprint planning, feature tracking, and lifecycle management across all her projects at Jio.`,
+            patterns: ['agile', 'sprint', 'methodology', 'scrum'],
+            response: () => `Ajitha is a <strong>Certified Scrum Master (CSM)</strong> from Scrum Alliance! With ${PROFILE.yearsAtJio} years at Jio, she follows <strong>Agile methodology</strong> in her delivery management work with proven ability to drive Agile delivery through Sprint Planning, Sprint Goals, Sprint Backlog execution, Reviews, and Retrospectives. She uses <strong>Azure DevOps</strong> for sprint planning, feature tracking, and lifecycle management across all her projects.`,
             quickReplies: ['Certifications', 'Azure DevOps', 'Projects'],
         },
 
