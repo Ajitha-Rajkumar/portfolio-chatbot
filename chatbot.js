@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
             patterns: ['light mode', 'switch to light', 'enable light mode', 'turn on light', 'bright mode', 'day mode', 'white mode', 'light theme'],
             response: () => `Switched to <strong>Light Mode</strong> ☀️! The website now has a bright, clean look.`,
             action: () => actions.setTheme('light'),
-            quickReplies: ['Dark Mode', 'Change Color', 'Reset'],
+            quickReplies: ['Dark Mode', 'Toggle Theme', 'Reset'],
         },
 
         // --- Switch to dark mode ---
@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
             patterns: ['dark mode', 'switch to dark', 'enable dark mode', 'turn on dark', 'night mode', 'dark theme', 'black mode'],
             response: () => `Switched to <strong>Dark Mode</strong> 🌙! Easier on the eyes.`,
             action: () => actions.setTheme('dark'),
-            quickReplies: ['Light Mode', 'Change Color', 'Reset'],
+            quickReplies: ['Light Mode', 'Toggle Theme', 'Reset'],
         },
 
         // --- Toggle theme ---
@@ -398,84 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return `Theme toggled! Now in <strong>${newTheme} Mode</strong> ${newTheme === 'Light' ? '☀️' : '🌙'}`;
             },
             action: () => actions.toggleTheme(),
-            quickReplies: ['Change Color', 'Font Size', 'Reset'],
+            quickReplies: ['Toggle Theme', 'Font Size', 'Reset'],
         },
 
-        // --- Change color ---
-        {
-            patterns: ['change color', 'change colour', 'set color', 'theme color', 'color to', 'make it', 'switch color', 'accent color'],
-            response: (input) => {
-                const color = findColorFromInput(input);
-                if (color) {
-                    const emoji = { purple: '💜', blue: '💙', green: '💚', red: '❤️', orange: '🧡', pink: '💗', teal: '🩵', yellow: '💛', cyan: '🩵' };
-                    return `Color changed to <strong>${color.charAt(0).toUpperCase() + color.slice(1)}</strong> ${emoji[color] || '🎨'}! The entire website has been updated.`;
-                }
-                return `I can change the website's color! Available colors:<br>💜 Purple (default) • 💙 Blue • 💚 Green • ❤️ Red • 🧡 Orange • 💗 Pink • 🩵 Teal • 💛 Yellow • 🩵 Cyan<br><br>Try: <em>"change color to blue"</em>`;
-            },
-            action: (input) => {
-                const color = findColorFromInput(input);
-                if (color) actions.changeColor(color);
-            },
-            quickReplies: ['Blue', 'Green', 'Red', 'Pink', 'Reset Color'],
-        },
-
-        // --- Set specific color (shortcut) ---
-        {
-            patterns: ['make it blue', 'blue theme', 'blue color', 'color blue'],
-            response: () => `Changed to <strong>Blue</strong> 💙! Fresh and professional look.`,
-            action: () => actions.changeColor('blue'),
-            quickReplies: ['Green', 'Red', 'Purple', 'Reset Color'],
-        },
-        {
-            patterns: ['make it green', 'green theme', 'green color', 'color green'],
-            response: () => `Changed to <strong>Green</strong> 💚! Fresh and energetic.`,
-            action: () => actions.changeColor('green'),
-            quickReplies: ['Blue', 'Red', 'Purple', 'Reset Color'],
-        },
-        {
-            patterns: ['make it red', 'red theme', 'red color', 'color red'],
-            response: () => `Changed to <strong>Red</strong> ❤️! Bold and striking.`,
-            action: () => actions.changeColor('red'),
-            quickReplies: ['Blue', 'Green', 'Purple', 'Reset Color'],
-        },
-        {
-            patterns: ['make it pink', 'pink theme', 'pink color', 'color pink'],
-            response: () => `Changed to <strong>Pink</strong> 💗! Vibrant and playful.`,
-            action: () => actions.changeColor('pink'),
-            quickReplies: ['Blue', 'Green', 'Purple', 'Reset Color'],
-        },
-        {
-            patterns: ['make it orange', 'orange theme', 'orange color', 'color orange'],
-            response: () => `Changed to <strong>Orange</strong> 🧡! Warm and creative.`,
-            action: () => actions.changeColor('orange'),
-            quickReplies: ['Blue', 'Green', 'Purple', 'Reset Color'],
-        },
-        {
-            patterns: ['make it teal', 'teal theme', 'teal color', 'color teal'],
-            response: () => `Changed to <strong>Teal</strong> 🩵! Cool and sophisticated.`,
-            action: () => actions.changeColor('teal'),
-            quickReplies: ['Blue', 'Green', 'Purple', 'Reset Color'],
-        },
-        {
-            patterns: ['make it yellow', 'yellow theme', 'yellow color', 'color yellow'],
-            response: () => `Changed to <strong>Yellow</strong> 💛! Bright and cheerful.`,
-            action: () => actions.changeColor('yellow'),
-            quickReplies: ['Blue', 'Green', 'Purple', 'Reset Color'],
-        },
-        {
-            patterns: ['make it cyan', 'cyan theme', 'cyan color', 'color cyan'],
-            response: () => `Changed to <strong>Cyan</strong> 🩵! Clean and modern.`,
-            action: () => actions.changeColor('cyan'),
-            quickReplies: ['Blue', 'Green', 'Purple', 'Reset Color'],
-        },
-
-        // --- Reset color ---
-        {
-            patterns: ['reset color', 'default color', 'original color', 'purple color', 'make it purple', 'color purple'],
-            response: () => `Restored to the original <strong>Purple</strong> 💜 theme!`,
-            action: () => actions.changeColor('purple'),
-            quickReplies: ['Change Color', 'Toggle Theme', 'Reset All'],
-        },
 
         // --- Increase font size ---
         {
@@ -504,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
             patterns: ['reset font', 'default font', 'normal font', 'original font', 'reset size', 'normal size', 'default size', 'reset text size'],
             response: () => `Font size restored to <strong>100%</strong> (default)!`,
             action: () => actions.changeFontSize('reset'),
-            quickReplies: ['Bigger Text', 'Change Color', 'Reset All'],
+            quickReplies: ['Bigger Text', 'Toggle Theme', 'Reset All'],
         },
 
         // --- Toggle particles ---
@@ -512,13 +437,13 @@ document.addEventListener('DOMContentLoaded', () => {
             patterns: ['turn off particles', 'disable particles', 'hide particles', 'no particles', 'remove particles', 'stop particles'],
             response: () => `Particles have been <strong>turned off</strong>. The hero section is now cleaner.`,
             action: () => actions.toggleParticles(false),
-            quickReplies: ['Turn On Particles', 'Change Color', 'Reset All'],
+            quickReplies: ['Turn On Particles', 'Toggle Theme', 'Reset All'],
         },
         {
             patterns: ['turn on particles', 'enable particles', 'show particles', 'add particles', 'start particles'],
             response: () => `Particles are back <strong>on</strong>! ✨ Watch them float in the hero section.`,
             action: () => actions.toggleParticles(true),
-            quickReplies: ['Turn Off Particles', 'Change Color', 'Go to Home'],
+            quickReplies: ['Turn Off Particles', 'Toggle Theme', 'Go to Home'],
         },
 
         // --- Open LinkedIn ---
@@ -573,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 document.querySelectorAll('.nav-links li').forEach(li => li.style.display = '');
             },
-            quickReplies: ['Go to Projects', 'Change Color', 'Help'],
+            quickReplies: ['Go to Projects', 'About Ajitha', 'Help'],
         },
 
         // --- Filter projects ---
@@ -598,7 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
             patterns: ['reset all', 'reset everything', 'restore defaults', 'default settings', 'reset website', 'undo all', 'undo changes', 'reset'],
             response: () => `All customizations have been <strong>reset to defaults</strong>! 🔄<br>• Theme: Dark<br>• Color: Purple<br>• Font: 100%<br>• Particles: On<br>• All sections visible`,
             action: () => actions.resetAll(),
-            quickReplies: ['Change Color', 'Toggle Theme', 'Help'],
+            quickReplies: ['About Ajitha', 'Toggle Theme', 'Help'],
         },
 
         // =======================
@@ -608,8 +533,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Greetings ---
         {
             patterns: ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening', 'howdy', 'what\'s up', 'sup'],
-            response: () => `Hi there! 👋 I'm <strong>Ajitha's interactive portfolio assistant</strong>. I can tell you about her experience, projects, skills, and more — plus I can <strong>control this website live!</strong><br><br>Try saying <em>"change color to blue"</em> or <em>"go to projects"</em>!`,
-            quickReplies: ['What Can You Do?', 'About Ajitha', 'Projects', 'Change Color'],
+            response: () => `Hi there! 👋 I'm <strong>Ajitha's interactive portfolio assistant</strong>. I can tell you about her experience, projects, skills, certifications, and more!<br><br>Try saying <em>"tell me about projects"</em> or <em>"go to skills"</em>!`,
+            quickReplies: ['About Ajitha', 'Projects', 'Skills', 'Certifications'],
         },
 
         // --- About / Who ---
@@ -878,8 +803,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Thanks ---
         {
             patterns: ['thanks', 'thank you', 'thank', 'thx', 'appreciate', 'helpful', 'great'],
-            response: () => `You're welcome! 😊 Glad I could help. Remember, I can also <strong>customize this website</strong> for you — try changing colors, themes, or navigating to different sections!`,
-            quickReplies: ['Change Color', 'Toggle Theme', 'Contact'],
+            response: () => `You're welcome! 😊 Glad I could help. Feel free to ask about Ajitha's projects, skills, experience, or certifications anytime!`,
+            quickReplies: ['Projects', 'Toggle Theme', 'Contact'],
         },
 
         // --- Goodbye ---
@@ -889,43 +814,13 @@ document.addEventListener('DOMContentLoaded', () => {
             quickReplies: ['Contact', 'LinkedIn'],
         },
 
-        // --- What can you do (INTERACTIVE HELP) ---
-        {
-            patterns: ['what can you do', 'options', 'menu', 'commands', 'how to use', 'what do you know', 'capabilities', 'features', 'interactive'],
-            response: () => `I'm an <strong>interactive assistant</strong> that can both answer questions AND control this website! Here's what I can do:<br><br>
-🎨 <strong>Visual Controls:</strong>
-<ul>
-<li><em>"Change color to blue/green/red/pink..."</em> — Change the website's color scheme</li>
-<li><em>"Light mode"</em> / <em>"Dark mode"</em> — Switch the theme</li>
-<li><em>"Bigger text"</em> / <em>"Smaller text"</em> — Adjust font size</li>
-<li><em>"Turn off particles"</em> — Toggle hero particles</li>
-</ul>
-🧭 <strong>Navigation:</strong>
-<ul>
-<li><em>"Go to projects"</em> / <em>"Show me skills"</em> — Navigate to any section</li>
-<li><em>"Open LinkedIn"</em> / <em>"Open GitHub"</em> — Open links</li>
-<li><em>"Download resume"</em> — Download the resume file</li>
-</ul>
-📋 <strong>Content:</strong>
-<ul>
-<li><em>"Show current project"</em> — Filter projects</li>
-<li><em>"Hide contact"</em> — Hide/show sections</li>
-<li><em>"Reset all"</em> — Restore defaults</li>
-</ul>
-💡 <strong>Knowledge:</strong>
-<ul>
-<li>Ask about Ajitha's skills, projects, experience, or achievements</li>
-</ul>`,
-            quickReplies: ['Change Color', 'Go to Projects', 'Toggle Theme', 'About Ajitha'],
-        },
 
         // --- Help ---
         {
-            patterns: ['help'],
-            response: () => `I can help you learn about Ajitha's portfolio AND <strong>control this website live!</strong><br><br>
+            patterns: ['help', 'what can you do', 'options', 'menu', 'commands', 'how to use', 'what do you know', 'capabilities', 'features'],
+            response: () => `I can help you learn about Ajitha's portfolio!<br><br>
 <strong>📌 Quick actions:</strong>
 <ul>
-<li>🎨 <em>"Change color to blue"</em></li>
 <li>🌙 <em>"Switch to dark mode"</em></li>
 <li>🔍 <em>"Make text bigger"</em></li>
 <li>🧭 <em>"Go to projects"</em></li>
@@ -933,8 +828,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <li>🔗 <em>"Open LinkedIn"</em></li>
 <li>🔄 <em>"Reset all"</em></li>
 </ul>
-<strong>📋 Ask about:</strong> Skills, Projects, Experience, Contact, GitHub, Achievements`,
-            quickReplies: ['What Can You Do?', 'Change Color', 'About Ajitha', 'Projects'],
+<strong>📋 Ask about:</strong> Skills, Projects, Experience, Certifications, Contact, GitHub, Achievements`,
+            quickReplies: ['About Ajitha', 'Projects', 'Skills', 'Certifications'],
         },
     ];
 
@@ -1015,9 +910,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getFallbackResponse() {
         const fallbacks = [
-            `I'm not sure about that. I can help with Ajitha's <strong>skills</strong>, <strong>projects</strong>, <strong>experience</strong>, or <strong>contact</strong> details. I can also <strong>customize this website</strong> — try <em>"change color to blue"</em>!`,
-            `Hmm, I don't have details on that topic. Try asking about Ajitha's <strong>projects at Jio</strong>, her <strong>skills</strong>, or try a website command like <em>"dark mode"</em> or <em>"go to projects"</em>!`,
-            `I can answer questions about Ajitha's portfolio AND control this website live! Try: <em>"change color to green"</em>, <em>"go to skills"</em>, or ask about her <strong>experience</strong>!`,
+            `I'm not sure about that. I can help with Ajitha's <strong>skills</strong>, <strong>projects</strong>, <strong>experience</strong>, <strong>certifications</strong>, or <strong>contact</strong> details. Try asking about her work at Jio!`,
+            `Hmm, I don't have details on that topic. Try asking about Ajitha's <strong>projects at Jio</strong>, her <strong>skills</strong>, or try <em>"go to projects"</em>!`,
+            `I can answer questions about Ajitha's portfolio! Try: <em>"go to skills"</em>, <em>"certifications"</em>, or ask about her <strong>experience</strong>!`,
         ];
         return fallbacks[Math.floor(Math.random() * fallbacks.length)];
     }
@@ -1046,12 +941,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="chatbot-avatar"><img src="laptop.png" alt="Bot" class="chatbot-avatar-img" /></div>
                 <div class="chatbot-header-info">
                     <h4>Ajitha's Portfolio Bot</h4>
-                    <p><span class="online-dot"></span> Online — I can control this website!</p>
+                    <p><span class="online-dot"></span> Online — Ask me anything!</p>
                 </div>
             </div>
             <div class="chatbot-messages" id="chatbotMessages"></div>
             <div class="chatbot-input">
-                <input type="text" id="chatbotInput" placeholder="Try: change color to blue..." autocomplete="off">
+                <input type="text" id="chatbotInput" placeholder="Ask about projects, skills, experience..." autocomplete="off">
                 <button id="chatbotSend" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
             </div>
         `;
@@ -1086,8 +981,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Welcome message
             setTimeout(() => {
                 addBotMessage(
-                    `Hi there! 👋 I'm <strong>Ajitha's interactive portfolio assistant</strong>.<br><br>I can tell you about her experience, projects, and skills — <strong>plus I can control this website live!</strong><br><br>🎨 Try: <em>"change color to blue"</em><br>🌙 Try: <em>"switch to light mode"</em><br>🧭 Try: <em>"go to projects"</em><br><br>What would you like to do?`,
-                    ['What Can You Do?', 'About Ajitha', 'Change Color', 'Projects']
+                    `Hi there! 👋 I'm <strong>Ajitha's interactive portfolio assistant</strong>.<br><br>I can tell you about her experience, projects, skills, and certifications.<br><br>🧭 Try: <em>"go to projects"</em><br>📋 Try: <em>"tell me about skills"</em><br>🎓 Try: <em>"certifications"</em><br><br>What would you like to know?`,
+                    ['About Ajitha', 'Projects', 'Skills', 'Certifications']
                 );
             }, 400);
         }
@@ -1178,7 +1073,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = typeof intent.response === 'function' ? intent.response(text) : intent.response;
             addBotMessage(response, intent.quickReplies || [], actionFn);
         } else {
-            addBotMessage(getFallbackResponse(), ['Help', 'What Can You Do?', 'Projects', 'Change Color']);
+            addBotMessage(getFallbackResponse(), ['Help', 'About Ajitha', 'Projects', 'Skills']);
         }
     }
 
