@@ -1045,8 +1045,8 @@ img { max-width: 100%; display: block; }
 }
 
 .project-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
+    font-size: 1.2rem;
+    margin-bottom: 14px;
     color: var(--text-primary);
     line-height: 1.4;
 }
@@ -1096,6 +1096,104 @@ img { max-width: 100%; display: block; }
 
 [data-theme="light"] .project-tech span {
     color: var(--primary);
+}
+
+/* Problem / Solution / Impact Blocks */
+.project-psi {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.psi-block {
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--border);
+}
+
+.psi-block h5 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.psi-block h5 i {
+    font-size: 0.85rem;
+}
+
+.psi-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.psi-block ul li {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.psi-block ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+/* Problem */
+.psi-block.problem {
+    background: rgba(239, 68, 68, 0.06);
+    border-left-color: #EF4444;
+}
+
+.psi-block.problem h5 {
+    color: #EF4444;
+}
+
+[data-theme="light"] .psi-block.problem {
+    background: rgba(239, 68, 68, 0.05);
+}
+
+/* Solution */
+.psi-block.solution {
+    background: rgba(59, 130, 246, 0.06);
+    border-left-color: #3B82F6;
+}
+
+.psi-block.solution h5 {
+    color: #3B82F6;
+}
+
+[data-theme="light"] .psi-block.solution {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Impact */
+.psi-block.impact {
+    background: rgba(34, 197, 94, 0.06);
+    border-left-color: #22c55e;
+}
+
+.psi-block.impact h5 {
+    color: #22c55e;
+}
+
+[data-theme="light"] .psi-block.impact {
+    background: rgba(34, 197, 94, 0.05);
+}
+
+.psi-block ul li strong {
+    color: var(--text-primary);
 }
 
 .project-impact {

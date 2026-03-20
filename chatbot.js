@@ -37,60 +37,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const PROJECTS = [
         {
-            name: 'Siteforge — Complete Feature Delivery',
-            period: 'Aug 2024 — Present',
-            tag: 'Current',
-            desc: 'Handling end-to-end delivery of Siteforge features, managing the complete development lifecycle from requirements to production release using Azure DevOps.',
-            highlights: [
-                'Managing complete delivery of Siteforge features',
-                'Coordinating with cross-functional teams for timely milestones',
-                'Driving stakeholder alignment on requirements & release schedules',
-            ],
-            tech: ['Azure DevOps', 'Agile', 'Feature Delivery'],
+            name: 'Fiber Network Automation & Process Optimization',
+            role: 'Project Manager',
+            tag: 'Project Manager',
+            tech: ['Azure DevOps', 'BPMN', 'Excel'],
+            problem: ['High ticket volume due to manual workflows', 'Delays in issue resolution and processing'],
+            solution: ['Automated repetitive operational workflows', 'Designed BPMN-based process flows', 'Coordinated cross-functional implementation', 'Introduced governance tracking mechanisms'],
+            impact: ['Reduced ticket volume by ~70%', 'Improved SLA adherence and turnaround time', 'Increased process standardization'],
         },
         {
-            name: 'Jio Process Documentation & eTOM Mapping',
-            period: '2024 — Aug 2024',
-            tag: 'Documentation',
-            desc: 'Documented Jio infrastructure automation processes using Avolution Abacus and mapped them to eTOM standards defined by TM Forum.',
-            highlights: [
-                'Created process documentation using Avolution Abacus',
-                'Coordinated with solution architects across Jio to capture business process steps with impacted systems',
-                'Mapped Jio processes to eTOM standards defined by TM Forum',
-            ],
-            tech: ['Avolution Abacus', 'eTOM', 'TM Forum'],
+            name: 'SLA-Based Delivery & Governance Framework',
+            role: 'PMO Analyst',
+            tag: 'PMO Analyst',
+            tech: ['Excel', 'Reporting', 'RAID Logs'],
+            problem: ['No centralized tracking of SLAs', 'Limited visibility across teams', 'Delayed issue escalation'],
+            solution: ['Implemented SLA tracking framework', 'Maintained RAID logs for risk management', 'Established structured reporting cadence', 'Enabled proactive escalation tracking'],
+            impact: ['Improved SLA compliance across projects', 'Increased visibility for stakeholders', 'Reduced delivery delays'],
         },
         {
-            name: 'One Fiber — Production Ticket Reduction',
-            period: '2023 — 2024',
-            tag: 'Operations',
-            desc: 'Anchored the One Fiber production ticket reduction project, achieving a 70% reduction in support tickets by streamlining processes and improving user experience.',
-            highlights: [
-                'Anchored ticket reduction project for one full year',
-                'Reduced 70% support tickets through process streamlining',
-                'Monitored core fiber build links across the country',
-            ],
-            tech: ['Production Support', 'Process Optimization', 'UX'],
+            name: 'Business Process Documentation & Standardization',
+            role: 'PMO Analyst',
+            tag: 'PMO Analyst',
+            tech: ['BPMN', 'eTOM Framework'],
+            problem: ['Unstructured and inconsistent processes', 'Lack of proper documentation', 'Difficult onboarding for new team members'],
+            solution: ['Created end-to-end BPMN process flows', 'Standardized workflows using eTOM framework', 'Simplified complex operational processes', 'Enabled cross-team accessibility'],
+            impact: ['Improved process clarity and consistency', 'Faster onboarding for new resources', 'Supported automation initiatives'],
         },
         {
-            name: 'P2B OSP Feature — SIT Delivery',
-            period: '2022 — 2023',
-            tag: 'SIT Delivery',
-            desc: 'Managed the System Integration Testing (SIT) delivery of the P2B OSP feature, ensuring quality and readiness for production deployment.',
-            highlights: [
-                'Led SIT delivery of P2B OSP feature',
-                'Coordinated testing cycles and defect management',
-                'Facilitated triage calls across cross-functional teams',
-            ],
-            tech: ['SIT', 'Azure DevOps', 'Defect Management'],
+            name: 'AI-Powered Portfolio Chatbot',
+            role: 'Creator',
+            tag: 'Creator',
+            tech: ['Cursor', 'AI APIs', 'Web Technologies'],
+            problem: ['Traditional portfolios are static and non-interactive', 'Recruiters spend limited time reviewing profiles'],
+            solution: ['Built an AI chatbot integrated into portfolio', 'Enabled query-based interaction for recruiters', 'Structured responses for experience and projects', 'Designed conversational interface for engagement'],
+            impact: ['Created interactive portfolio experience', 'Improved accessibility of information', 'Demonstrates AI + product-thinking capability'],
+        },
+        {
+            name: 'AI Business Process Analyzer',
+            role: 'Creator',
+            tag: 'Ongoing',
+            tech: ['Excel', 'AI Models', 'Prompt Engineering'],
+            problem: ['Manual process analysis is time-consuming', 'Lack of automated insights for optimization'],
+            solution: ['Designed AI-driven analysis using structured Excel input', 'Built prompt-based system for process evaluation', 'Generated automated improvement suggestions'],
+            impact: ['Demonstrates AI application in business optimization', 'Bridges gap between operations and automation', 'Scalable approach for process improvement'],
         },
     ];
 
     const EXPERIENCE = [
-        { period: 'Aug 2024 — Present', role: 'Delivery Manager', project: 'Siteforge Feature Delivery', desc: 'Handling complete end-to-end delivery of Siteforge features.' },
-        { period: '2024 — Aug 2024', role: 'Process Documentation Lead', project: 'Jio Process Documentation & eTOM Mapping', desc: 'Documented processes using Avolution Abacus and coordinated with solution architects across Jio to map business processes to eTOM standards.' },
-        { period: '2023 — 2024', role: 'Project Anchor', project: 'One Fiber — Production Ticket Reduction', desc: 'Anchored ticket reduction project, achieved 70% reduction in support tickets.' },
-        { period: '2022 — 2023', role: 'SIT Delivery Coordinator', project: 'P2B OSP Feature — SIT Delivery', desc: 'Managed SIT delivery of P2B OSP feature.' },
+        { period: 'Current', role: 'Project Manager', project: 'Fiber Network Automation & Process Optimization', desc: 'Automated workflows, designed BPMN flows, and reduced ticket volume by ~70%.' },
+        { period: 'Ongoing', role: 'Creator', project: 'AI Business Process Analyzer', desc: 'Designing AI-driven process analysis using Excel and prompt engineering.' },
+        { period: 'Completed', role: 'PMO Analyst', project: 'SLA-Based Delivery & Governance Framework', desc: 'Implemented SLA tracking and RAID-based risk management framework.' },
+        { period: 'Completed', role: 'PMO Analyst', project: 'Business Process Documentation & Standardization', desc: 'Created BPMN process flows and standardized workflows using eTOM framework.' },
+        { period: 'Completed', role: 'Creator', project: 'AI-Powered Portfolio Chatbot', desc: 'Built an AI chatbot for interactive portfolio experience.' },
     ];
 
     // =============================================
@@ -571,16 +569,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Filter projects ---
         {
             patterns: ['show current project', 'filter current', 'only current', 'show only current'],
-            response: () => `Showing only the <strong>current project</strong> (Siteforge). Say <em>"show all projects"</em> to restore.`,
+            response: () => `Showing only the <strong>current projects</strong>. Say <em>"show all projects"</em> to restore.`,
             action: () => {
-                actions.filterProjects('current');
+                actions.filterProjects('Project Manager');
                 actions.navigateTo('projects');
             },
-            quickReplies: ['Show All Projects', 'Siteforge Details', 'Reset'],
+            quickReplies: ['Show All Projects', 'Fiber Automation', 'Reset'],
         },
         {
             patterns: ['show all projects', 'all projects', 'restore projects', 'clear filter'],
-            response: () => `All <strong>4 projects</strong> are now visible again!`,
+            response: () => `All <strong>5 projects</strong> are now visible again!`,
             action: () => actions.filterProjects('all'),
             quickReplies: ['Filter Current', 'Go to Projects', 'Help'],
         },
@@ -607,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- About / Who ---
         {
             patterns: ['who is ajitha', 'who are you', 'tell me about ajitha', 'about ajitha', 'about you', 'about her', 'about yourself', 'introduce', 'introduction', 'about me', 'who is she', 'bio', 'background'],
-            response: () => `<strong>${PROFILE.name}</strong><br><em>${PROFILE.role}</em><br><br>Working at <strong>${PROFILE.company}</strong> with ${PROFILE.yearsAtJio} years of experience.<br><br>${PROFILE.summary}<br><br>🎓 <strong>Certifications:</strong> CSM (Scrum Alliance), Microsoft Power BI Data Analyst, IBM Applied Software Engineering Fundamentals<br><br>She has worked on key projects including Siteforge delivery, One Fiber ticket reduction (70% reduction!), Jio Process Documentation, and P2B OSP SIT delivery.`,
+            response: () => `<strong>${PROFILE.name}</strong><br><em>${PROFILE.role}</em><br><br>Working at <strong>${PROFILE.company}</strong> with ${PROFILE.yearsAtJio} years of experience.<br><br>${PROFILE.summary}<br><br>🎓 <strong>Certifications:</strong> CSM (Scrum Alliance), Microsoft Power BI Data Analyst, IBM Applied Software Engineering Fundamentals<br><br>Key projects: Fiber Network Automation (~70% ticket reduction), SLA Governance Framework, BPMN Process Documentation, AI-Powered Portfolio Chatbot, and AI Business Process Analyzer (ongoing).`,
             action: () => actions.navigateTo('about'),
             quickReplies: ['Certifications', 'Skills', 'Projects', 'Experience'],
         },
@@ -659,55 +657,81 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             patterns: ['projects', 'what projects', 'tell me about projects', 'what has she worked on', 'deliverables', 'what did she do'],
             response: () => {
-                let list = PROJECTS.map(p => `<li><strong>${p.name}</strong> (${p.period}) — ${p.desc.substring(0, 80)}...</li>`).join('');
-                return `Ajitha has delivered <strong>4 major projects</strong> at Jio Platforms Limited:<ul>${list}</ul>Which project would you like to know more about?`;
+                let list = PROJECTS.map(p => `<li><strong>${p.name}</strong> (${p.role}) — ${p.impact[0]}</li>`).join('');
+                return `Ajitha has worked on <strong>5 key projects</strong> spanning delivery, automation &amp; AI:<ul>${list}</ul>Which project would you like to know more about?`;
             },
             action: () => actions.navigateTo('projects'),
-            quickReplies: ['Siteforge', 'Process Documentation', 'One Fiber', 'P2B OSP'],
+            quickReplies: ['Fiber Automation', 'SLA Framework', 'AI Chatbot', 'AI Analyzer'],
         },
 
-        // --- Siteforge ---
+        // --- Fiber Network Automation ---
         {
-            patterns: ['siteforge', 'site forge', 'current project', 'current work', 'what is she doing now', 'present project', 'latest project', 'working on now'],
+            patterns: ['fiber network', 'fiber automation', 'network automation', 'process optimization', 'ticket reduction', '70%', 'seventy percent', 'one fiber', 'siteforge', 'site forge'],
             response: () => {
                 const p = PROJECTS[0];
-                let highlights = p.highlights.map(h => `<li>${h}</li>`).join('');
-                return `<strong>${p.name}</strong><br>📅 ${p.period} | 🏷️ ${p.tag}<br><br>${p.desc}<br><br>Key highlights:<ul>${highlights}</ul>Technologies: ${p.tech.join(', ')}`;
+                const problems = p.problem.map(x => `<li>${x}</li>`).join('');
+                const solutions = p.solution.map(x => `<li>${x}</li>`).join('');
+                const impacts = p.impact.map(x => `<li>${x}</li>`).join('');
+                return `<strong>${p.name}</strong><br>🏷️ ${p.role} | 🛠️ ${p.tech.join(', ')}<br><br>❌ <strong>Problem:</strong><ul>${problems}</ul>✅ <strong>Solution:</strong><ul>${solutions}</ul>🎯 <strong>Impact:</strong><ul>${impacts}</ul>`;
             },
-            quickReplies: ['Other Projects', 'Experience', 'Go to Projects'],
+            action: () => actions.navigateTo('projects'),
+            quickReplies: ['SLA Framework', 'Process Documentation', 'Other Projects'],
         },
 
-        // --- Process Documentation ---
+        // --- SLA-Based Delivery ---
         {
-            patterns: ['process documentation', 'documentation project', 'jio process', 'bpmn', 'process mapping', 'document'],
+            patterns: ['sla', 'governance', 'governance framework', 'sla delivery', 'sla tracking', 'raid', 'raid log', 'escalation'],
             response: () => {
                 const p = PROJECTS[1];
-                let highlights = p.highlights.map(h => `<li>${h}</li>`).join('');
-                return `<strong>${p.name}</strong><br>📅 ${p.period} | 🏷️ ${p.tag}<br><br>${p.desc}<br><br>Key highlights:<ul>${highlights}</ul>Technologies: ${p.tech.join(', ')}`;
+                const problems = p.problem.map(x => `<li>${x}</li>`).join('');
+                const solutions = p.solution.map(x => `<li>${x}</li>`).join('');
+                const impacts = p.impact.map(x => `<li>${x}</li>`).join('');
+                return `<strong>${p.name}</strong><br>🏷️ ${p.role} | 🛠️ ${p.tech.join(', ')}<br><br>❌ <strong>Problem:</strong><ul>${problems}</ul>✅ <strong>Solution:</strong><ul>${solutions}</ul>🎯 <strong>Impact:</strong><ul>${impacts}</ul>`;
             },
-            quickReplies: ['Avolution Abacus', 'eTOM', 'Other Projects'],
+            action: () => actions.navigateTo('projects'),
+            quickReplies: ['Fiber Automation', 'Process Documentation', 'Other Projects'],
         },
 
-        // --- One Fiber ---
+        // --- Business Process Documentation ---
         {
-            patterns: ['one fiber', 'onefiber', 'ticket reduction', 'production ticket', 'support ticket', '70%', 'seventy percent'],
+            patterns: ['process documentation', 'documentation project', 'bpmn', 'process mapping', 'document', 'standardization', 'process standardization'],
             response: () => {
                 const p = PROJECTS[2];
-                let highlights = p.highlights.map(h => `<li>${h}</li>`).join('');
-                return `<strong>${p.name}</strong><br>📅 ${p.period} | 🏷️ ${p.tag}<br><br>${p.desc}<br><br>Key highlights:<ul>${highlights}</ul>🎯 <strong>Impact: 70% reduction in support tickets!</strong><br><br>Technologies: ${p.tech.join(', ')}`;
+                const problems = p.problem.map(x => `<li>${x}</li>`).join('');
+                const solutions = p.solution.map(x => `<li>${x}</li>`).join('');
+                const impacts = p.impact.map(x => `<li>${x}</li>`).join('');
+                return `<strong>${p.name}</strong><br>🏷️ ${p.role} | 🛠️ ${p.tech.join(', ')}<br><br>❌ <strong>Problem:</strong><ul>${problems}</ul>✅ <strong>Solution:</strong><ul>${solutions}</ul>🎯 <strong>Impact:</strong><ul>${impacts}</ul>`;
             },
-            quickReplies: ['Other Projects', 'Experience', 'Achievements'],
+            action: () => actions.navigateTo('projects'),
+            quickReplies: ['eTOM', 'Fiber Automation', 'Other Projects'],
         },
 
-        // --- P2B OSP ---
+        // --- AI-Powered Portfolio Chatbot ---
         {
-            patterns: ['p2b', 'osp', 'p2b osp', 'sit delivery', 'system integration testing', 'sit'],
+            patterns: ['portfolio chatbot', 'ai chatbot', 'chatbot project', 'interactive portfolio', 'this chatbot', 'this bot'],
             response: () => {
                 const p = PROJECTS[3];
-                let highlights = p.highlights.map(h => `<li>${h}</li>`).join('');
-                return `<strong>${p.name}</strong><br>📅 ${p.period} | 🏷️ ${p.tag}<br><br>${p.desc}<br><br>Key highlights:<ul>${highlights}</ul>Technologies: ${p.tech.join(', ')}`;
+                const problems = p.problem.map(x => `<li>${x}</li>`).join('');
+                const solutions = p.solution.map(x => `<li>${x}</li>`).join('');
+                const impacts = p.impact.map(x => `<li>${x}</li>`).join('');
+                return `<strong>${p.name}</strong><br>🏷️ ${p.role} | 🛠️ ${p.tech.join(', ')}<br><br>❌ <strong>Problem:</strong><ul>${problems}</ul>✅ <strong>Solution:</strong><ul>${solutions}</ul>🎯 <strong>Impact:</strong><ul>${impacts}</ul>Yes — you're talking to it right now! 🤖`;
             },
-            quickReplies: ['Other Projects', 'Experience', 'Skills'],
+            action: () => actions.navigateTo('projects'),
+            quickReplies: ['AI Analyzer', 'Other Projects', 'Skills'],
+        },
+
+        // --- AI Business Process Analyzer ---
+        {
+            patterns: ['ai analyzer', 'business process analyzer', 'ai analysis', 'prompt engineering', 'ongoing project', 'ai business'],
+            response: () => {
+                const p = PROJECTS[4];
+                const problems = p.problem.map(x => `<li>${x}</li>`).join('');
+                const solutions = p.solution.map(x => `<li>${x}</li>`).join('');
+                const impacts = p.impact.map(x => `<li>${x}</li>`).join('');
+                return `<strong>${p.name}</strong> 🚧 <em>(Ongoing)</em><br>🏷️ ${p.role} | 🛠️ ${p.tech.join(', ')}<br><br>❌ <strong>Problem:</strong><ul>${problems}</ul>✅ <strong>Solution:</strong><ul>${solutions}</ul>🎯 <strong>Impact:</strong><ul>${impacts}</ul>`;
+            },
+            action: () => actions.navigateTo('projects'),
+            quickReplies: ['AI Chatbot', 'Other Projects', 'Skills'],
         },
 
         // --- Experience ---
@@ -717,23 +741,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 let timeline = EXPERIENCE.map(e =>
                     `<li><strong>${e.period}</strong> — ${e.role}<br><em>${e.project}</em>: ${e.desc}</li>`
                 ).join('');
-                return `Here's Ajitha's career journey at <strong>Jio Platforms Limited</strong>:<ul>${timeline}</ul>All roles are within Jio Platforms Limited.`;
+                return `Here's Ajitha's career journey at <strong>Jio Platforms Limited</strong>:<ul>${timeline}</ul>`;
             },
             action: () => actions.navigateTo('experience'),
-            quickReplies: ['Siteforge', 'One Fiber', 'Skills', 'Contact'],
+            quickReplies: ['Fiber Automation', 'SLA Framework', 'Skills', 'Contact'],
         },
 
         // --- Current Role ---
         {
-            patterns: ['current role', 'current position', 'what does she do', 'role now', 'designation', 'title'],
-            response: () => `Ajitha is currently working as a <strong>Delivery Manager</strong> at <strong>Jio Platforms Limited</strong>, handling the complete end-to-end delivery of <strong>Siteforge features</strong> since August 2024.`,
-            quickReplies: ['Siteforge', 'Past Projects', 'Skills'],
+            patterns: ['current role', 'current position', 'what does she do', 'role now', 'designation', 'title', 'current project', 'current work', 'what is she doing now', 'present project', 'latest project', 'working on now'],
+            response: () => `Ajitha is currently working as a <strong>Project Manager</strong> at <strong>Jio Platforms Limited</strong>, leading <strong>Fiber Network Automation &amp; Process Optimization</strong> — achieving a ~70% ticket volume reduction. She is also building an <strong>AI Business Process Analyzer</strong> as an ongoing side project.`,
+            quickReplies: ['Fiber Automation', 'AI Analyzer', 'Skills'],
         },
 
         // --- Achievements ---
         {
             patterns: ['achievements', 'accomplishments', 'impact', 'results', 'key achievement', 'proud of'],
-            response: () => `Here are Ajitha's standout achievements:<ul><li>🎓 <strong>3 Professional Certifications</strong> — CSM (Scrum Alliance), Power BI (Microsoft), IBM Software Engineering</li><li>🎯 <strong>70% reduction in support tickets</strong> — One Fiber project (2023–2024)</li><li>💰 <strong>&lt;3% budget variance</strong> — Consistent on-time, within-budget delivery across PAN-India operations</li><li>📋 <strong>End-to-end process documentation</strong> using Avolution Abacus mapped to eTOM standards</li><li>🤝 <strong>Cross-Jio coordination</strong> — worked with solution architects across the organization</li><li>🚀 <strong>Full feature delivery ownership</strong> — currently managing Siteforge delivery</li><li>📊 <strong>3.5+ years of consistent delivery</strong> across 4 major projects at Jio</li></ul>`,
+            response: () => `Here are Ajitha's standout achievements:<ul><li>🎓 <strong>3 Professional Certifications</strong> — CSM (Scrum Alliance), Power BI (Microsoft), IBM Software Engineering</li><li>🎯 <strong>~70% ticket volume reduction</strong> — Fiber Network Automation project</li><li>💰 <strong>&lt;3% budget variance</strong> — Consistent on-time, within-budget delivery across PAN-India operations</li><li>📋 <strong>End-to-end BPMN process documentation</strong> standardized with eTOM framework</li><li>📊 <strong>SLA tracking &amp; governance framework</strong> — improved compliance across projects</li><li>🤖 <strong>AI-Powered Portfolio Chatbot</strong> — demonstrates AI + product-thinking capability</li><li>🧠 <strong>AI Business Process Analyzer</strong> — ongoing AI innovation project</li><li>📊 <strong>3.5+ years of consistent delivery</strong> across 5 key projects at Jio</li></ul>`,
             quickReplies: ['Certifications', 'Projects', 'Experience'],
         },
 
@@ -827,8 +851,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Fiber / Telecom ---
         {
             patterns: ['fiber', 'fibre', 'telecom', 'telecommunications', 'network', 'infrastructure'],
-            response: () => `Ajitha has extensive experience in <strong>telecom infrastructure</strong> at Jio:<ul><li><strong>One Fiber:</strong> Anchored production ticket reduction, achieving 70% ticket reduction</li><li><strong>P2B OSP:</strong> Managed SIT delivery for fiber automation</li><li><strong>eTOM Mapping:</strong> Aligned Jio processes to global telecom standards</li><li><strong>Siteforge:</strong> Currently delivering infrastructure features</li></ul>`,
-            quickReplies: ['One Fiber', 'Siteforge', 'eTOM'],
+            response: () => `Ajitha has extensive experience in <strong>telecom &amp; fiber network infrastructure</strong> at Jio:<ul><li><strong>Fiber Network Automation:</strong> Automated workflows and reduced ticket volume by ~70%</li><li><strong>BPMN Process Documentation:</strong> Standardized processes using eTOM framework</li><li><strong>SLA Governance Framework:</strong> Implemented centralized SLA tracking</li><li><strong>AI Business Process Analyzer:</strong> Building AI-driven process optimization (ongoing)</li></ul>`,
+            quickReplies: ['Fiber Automation', 'SLA Framework', 'eTOM'],
         },
 
         // --- Agile ---
