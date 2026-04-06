@@ -25,7 +25,7 @@
         targetRoles: 'Project Manager, Delivery Manager, Product Manager, Scrum Master, PMO / Program Management, AI & Digital Transformation PM',
     };
 
-    const ELEVATOR_PITCH = `I'm a CSM-certified Project Manager with <strong>${PROFILE.experience} years</strong> at <strong>Jio Platforms</strong>, specializing in telecom digital transformation and workflow automation. I've delivered <strong>5 key projects</strong> across PAN-India operations with <strong>&lt;3% budget variance</strong>, including a Fiber Network Automation initiative that <strong>reduced ticket volume by ~70%</strong>.`;
+    const ELEVATOR_PITCH = `I'm a Project Manager with <strong>${PROFILE.experience} years</strong> at <strong>Jio Platforms</strong>, driving telecom digital transformation, workflow automation, and process optimization across PAN-India operations. CSM-certified, I've delivered <strong>5 key projects</strong> with <strong>&lt;3% budget variance</strong>, including a Fiber Network Automation initiative that <strong>reduced ticket volume by ~70%</strong>.`;
 
     const SKILLS = [
         { name: 'Azure DevOps', detail: 'Sprint planning, feature tracking, project lifecycle management' },
@@ -43,11 +43,11 @@
     ];
 
     const PROJECTS = [
-        { name: 'Fiber Network Automation & Process Optimization', role: 'Project Manager', impact: 'Reduced ticket volume by ~70% through workflow automation and BPMN-based process design', status: 'Current' },
-        { name: 'SLA-Based Delivery & Governance Framework', role: 'PMO Analyst', impact: 'Improved SLA compliance with centralized tracking, RAID logs, and structured reporting', status: 'Completed' },
-        { name: 'Business Process Documentation & Standardization', role: 'PMO Analyst', impact: 'Standardized workflows using eTOM framework, enabling faster onboarding and automation', status: 'Completed' },
-        { name: 'AI-Powered Portfolio Chatbot', role: 'Creator', impact: 'Built an AI chatbot for recruiter engagement, demonstrating AI and product-thinking capability', status: 'Completed' },
-        { name: 'AI Business Process Analyzer', role: 'Creator', impact: 'Designing AI-driven process analysis with automated improvement suggestions', status: 'Ongoing' },
+        { name: 'Fiber Network Automation & Process Optimization', impact: 'Reduced ticket volume by ~70% through workflow automation and BPMN-based process design' },
+        { name: 'SLA-Based Delivery & Governance Framework', impact: 'Improved SLA compliance with centralized tracking, RAID logs, and structured reporting' },
+        { name: 'Business Process Documentation & Standardization', impact: 'Standardized workflows using eTOM framework, enabling faster onboarding and automation' },
+        { name: 'AI-Powered Portfolio Chatbot', impact: 'Built an AI chatbot for recruiter engagement, demonstrating AI and product-thinking capability' },
+        { name: 'AI Business Process Analyzer', impact: 'Designing AI-driven process analysis with automated improvement suggestions' },
     ];
 
     // =============================================
@@ -63,7 +63,7 @@
         },
         {
             patterns: ['current role', 'current position', 'what do you do', 'designation', 'title', 'role now', 'your role', 'job title', 'what is your role', 'position'],
-            response: () => `I'm currently a <strong>Project Manager</strong> at <strong>${PROFILE.company}</strong>, leading telecom digital transformation and workflow automation projects across PAN-India operations using Agile/Scrum methodology.`,
+            response: () => `I've been a <strong>Project Manager</strong> at <strong>${PROFILE.company}</strong> since July 2022, leading telecom digital transformation, workflow automation, and process optimization projects across PAN-India operations using Agile/Scrum methodology.`,
             chips: ['Tell me about Ajitha', 'Projects', 'Experience'],
         },
         {
@@ -73,7 +73,7 @@
         },
         {
             patterns: ['where do you work', 'current company', 'which company', 'employer', 'organization', 'where are you working'],
-            response: () => `I work at <strong>${PROFILE.company}</strong> — one of India's largest digital platforms. I manage PAN-India telecom projects covering fiber network automation, SLA governance, and process standardization with <strong>&lt;3% budget variance</strong>.`,
+            response: () => `I've been working at <strong>${PROFILE.company}</strong> since July 2022 — one of India's largest digital platforms. As Project Manager, I manage PAN-India telecom projects covering fiber network automation, SLA governance, and process standardization with <strong>&lt;3% budget variance</strong>.`,
             chips: ['Current role', 'Projects', 'Experience'],
         },
 
@@ -104,8 +104,8 @@
         {
             patterns: ['projects', 'what projects', 'worked on', 'project experience', 'portfolio', 'work done', 'deliverables', 'project list'],
             response: () => {
-                const list = PROJECTS.map(p => `<li><strong>${p.name}</strong> (${p.role}) — ${p.impact} <em>[${p.status}]</em></li>`).join('');
-                return `I've delivered <strong>5 key projects</strong>:<ul>${list}</ul>`;
+                const list = PROJECTS.map(p => `<li><strong>${p.name}</strong> — ${p.impact}</li>`).join('');
+                return `I've delivered <strong>5 key projects</strong> as Project Manager at Jio Platforms:<ul>${list}</ul>`;
             },
             chips: ['Biggest achievement', 'AI experience', 'Key skills'],
         },
