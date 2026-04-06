@@ -37,9 +37,9 @@
     ];
 
     const CERTIFICATIONS = [
-        { name: 'Certified Scrum Master (CSM)', issuer: 'Scrum Alliance' },
-        { name: 'Microsoft Power BI Data Analyst', issuer: 'Microsoft' },
-        { name: 'IBM Applied Software Engineering Fundamentals', issuer: 'IBM' },
+        { name: 'Certified Scrum Master (CSM)', issuer: 'Scrum Alliance', detail: 'Issued Dec 2025 · Expires Dec 2027 · ID: 001806637', link: 'https://www.scrumalliance.org/community/profile/001806637' },
+        { name: 'Microsoft Power BI Data Analyst', issuer: 'Microsoft', detail: 'Coursera Specialization', link: 'https://www.coursera.org/account/accomplishments/specialization/70QBZ1MOQ1JQ' },
+        { name: 'IBM Applied Software Engineering Fundamentals', issuer: 'IBM', detail: 'Coursera Specialization', link: 'https://www.coursera.org/account/accomplishments/specialization/UVDW0NL65AET' },
     ];
 
     const PROJECTS = [
@@ -89,7 +89,7 @@
         {
             patterns: ['certifications', 'certificates', 'certified', 'credentials', 'csm', 'scrum master certified', 'power bi certified', 'ibm certified'],
             response: () => {
-                const list = CERTIFICATIONS.map(c => `<li><strong>${c.name}</strong> — ${c.issuer}</li>`).join('');
+                const list = CERTIFICATIONS.map(c => `<li><a href="${c.link}" target="_blank" rel="noopener noreferrer" style="color: var(--primary-light, #8B83FF); text-decoration: none; font-weight: 600;">${c.name}</a> — ${c.issuer}<br><small>${c.detail}</small></li>`).join('');
                 return `I hold <strong>3 professional certifications</strong>:<ul>${list}</ul>`;
             },
             chips: ['Key skills', 'Projects', 'Why should we consider you?'],
