@@ -18,7 +18,7 @@
         email: 'ajitha.rajkumar@email.com',
         linkedin: 'https://www.linkedin.com/in/ajitha-rajkumar/',
         github: 'https://github.com/Ajitha-Rajkumar',
-        resumeFile: 'Ajitha Rajkumar Resume.docx',
+        resumeFile: 'Ajitha Rajkumar Resume.pdf',
         status: 'Actively looking for new opportunities',
         workMode: 'On-site',
         relocation: 'Yes, open to relocation',
@@ -57,14 +57,14 @@
 
         // --- A: Who Is This Person? ---
         {
-            patterns: ['tell me about yourself', 'who are you', 'about yourself', 'introduce', 'introduction', 'about you', 'about ajitha', 'who is ajitha', 'bio', 'background', 'summary', 'overview', 'profile'],
+            patterns: ['tell me about ajitha', 'tell me about yourself', 'who are you', 'about yourself', 'introduce', 'introduction', 'about you', 'about ajitha', 'who is ajitha', 'bio', 'background', 'summary', 'overview', 'profile'],
             response: () => ELEVATOR_PITCH,
             chips: ['Key skills', 'Projects', 'Certifications'],
         },
         {
             patterns: ['current role', 'current position', 'what do you do', 'designation', 'title', 'role now', 'your role', 'job title', 'what is your role', 'position'],
             response: () => `I'm currently a <strong>Project Manager</strong> at <strong>${PROFILE.company}</strong>, leading telecom digital transformation and workflow automation projects across PAN-India operations using Agile/Scrum methodology.`,
-            chips: ['Tell me about yourself', 'Projects', 'Experience'],
+            chips: ['Tell me about Ajitha', 'Projects', 'Experience'],
         },
         {
             patterns: ['how many years', 'years of experience', 'experience years', 'total experience', 'work experience', 'how long'],
@@ -84,7 +84,7 @@
                 const list = SKILLS.map(s => `<li><strong>${s.name}</strong> — ${s.detail}</li>`).join('');
                 return `Here are my core skills:<ul>${list}</ul>`;
             },
-            chips: ['Certifications', 'Projects', 'Tell me about yourself'],
+            chips: ['Certifications', 'Projects', 'Tell me about Ajitha'],
         },
         {
             patterns: ['certifications', 'certificates', 'certified', 'credentials', 'csm', 'scrum master certified', 'power bi certified', 'ibm certified'],
@@ -149,17 +149,17 @@
         {
             patterns: ['target roles', 'what roles', 'looking for what', 'type of role', 'kind of job', 'what position', 'interested in'],
             response: () => `I'm targeting: <strong>${PROFILE.targetRoles}</strong> — in domains like telecom, digital transformation, AI/automation, or enterprise operations.`,
-            chips: ['Tell me about yourself', 'Key skills', 'Contact'],
+            chips: ['Tell me about Ajitha', 'Key skills', 'Contact'],
         },
         {
             patterns: ['resume', 'cv', 'download resume', 'download cv', 'your resume'],
             response: () => `You can download my resume here:<br><br><a href="${PROFILE.resumeFile}" download style="color: var(--primary-light, #8B83FF); text-decoration: underline; font-weight: 600;"><i class="fas fa-download"></i> Download Resume</a>`,
-            chips: ['Tell me about yourself', 'Projects', 'Contact'],
+            chips: ['Tell me about Ajitha', 'Projects', 'Contact'],
         },
         {
             patterns: ['contact', 'reach you', 'get in touch', 'email', 'connect', 'linkedin', 'how to contact', 'phone'],
             response: () => `Here's how you can reach me:<ul><li><strong>Email:</strong> ${PROFILE.email}</li><li><strong>LinkedIn:</strong> <a href="${PROFILE.linkedin}" target="_blank" rel="noopener noreferrer" style="color: var(--primary-light, #8B83FF);">linkedin.com/in/ajitha-rajkumar</a></li><li><strong>GitHub:</strong> <a href="${PROFILE.github}" target="_blank" rel="noopener noreferrer" style="color: var(--primary-light, #8B83FF);">github.com/Ajitha-Rajkumar</a></li></ul>`,
-            chips: ['Download resume', 'Tell me about yourself'],
+            chips: ['Download resume', 'Tell me about Ajitha'],
         },
 
         // --- E: Standout ---
@@ -171,7 +171,7 @@
         {
             patterns: ['passion', 'passionate about', 'what drives you', 'motivation', 'interest', 'what excites you'],
             response: () => `I'm passionate about <strong>applying AI to real business problems</strong>. I don't just manage projects — I build solutions. From automating fiber network workflows to building this AI chatbot and designing a process analyzer, I'm driven by the intersection of <strong>technology, process optimization, and measurable impact</strong>.`,
-            chips: ['AI experience', 'Projects', 'Tell me about yourself'],
+            chips: ['AI experience', 'Projects', 'Tell me about Ajitha'],
         },
     ];
 
@@ -187,7 +187,7 @@
     ];
 
     const DEFAULT_CHIPS = [
-        'Tell me about yourself',
+        'Tell me about Ajitha',
         'Key skills',
         'Projects',
         'Certifications',
@@ -292,7 +292,7 @@
         const launcher = document.createElement('button');
         launcher.className = 'chatbot-launcher';
         launcher.setAttribute('aria-label', 'Open chat');
-        launcher.innerHTML = '<i class="fas fa-comment-dots"></i>';
+        launcher.innerHTML = '<img src="laptop.png" alt="Chat" class="chatbot-launcher-img" />';
 
         // Chat window
         const chatWindow = document.createElement('div');
@@ -308,9 +308,14 @@
                         <span>Ask me about Ajitha</span>
                     </div>
                 </div>
-                <button class="chatbot-close" aria-label="Close chat">
-                    <i class="fas fa-times"></i>
-                </button>
+                <div class="chatbot-header-actions">
+                    <button class="chatbot-clear" id="chatbotClear" aria-label="Clear chat" title="Start over">
+                        <i class="fas fa-redo-alt"></i>
+                    </button>
+                    <button class="chatbot-close" aria-label="Close chat">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
             </div>
             <div class="chatbot-messages" id="chatbotMessages"></div>
             <div class="chatbot-chips" id="chatbotChips"></div>
@@ -359,8 +364,17 @@
             }
         }
 
+        // Clear / reset chat
+        const clearBtn = chatWindow.querySelector('#chatbotClear');
+        function clearChat() {
+            messagesEl.innerHTML = '';
+            chipsEl.innerHTML = '';
+            addBotMessage(GREETING, DEFAULT_CHIPS);
+        }
+
         launcher.addEventListener('click', toggleChat);
         closeBtn.addEventListener('click', toggleChat);
+        clearBtn.addEventListener('click', clearChat);
 
         // Add user message
         function addUserMessage(text) {
